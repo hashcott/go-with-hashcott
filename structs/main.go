@@ -32,5 +32,22 @@ func main() {
 			zipCode: 2535,
 		},
 	}
-	fmt.Println(hanh)
+	hanhPointer := &hanh
+	hanhPointer.updateName("John")
+	// hanh.print()
+
+	a := 5
+	test(&a)
+	fmt.Println(a)
+}
+
+func test(a *int) {
+	*a = 10
+}
+func (pointerToPerson *person) updateName(newFirstName string) {
+	(*pointerToPerson).firstName = newFirstName
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
 }
