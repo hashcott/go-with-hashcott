@@ -1,9 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 type person struct {
-	firstName string
+	firstName string `Email invalid`
 	lastName  string
 	contact   contactInfo
 }
@@ -32,6 +35,9 @@ func main() {
 			zipCode: 2535,
 		},
 	}
+	t := reflect.TypeOf(hanh)
+	field, _ := t.FieldByName("firstName")
+	fmt.Println(field)
 	hanhPointer := &hanh
 	hanhPointer.updateName("John")
 	// hanh.print()
